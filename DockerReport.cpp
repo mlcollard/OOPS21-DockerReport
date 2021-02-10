@@ -25,9 +25,12 @@ int main() {
     int centos_count = 0;
     int opensuse_count = 0;
     std::string version;
+
+    // input complete file into a string
     std::ostringstream sstream;
     sstream << std::cin.rdbuf();
     std::string buffer = sstream.str();
+
     std::string::const_iterator pc = buffer.cbegin();
     while (true) {
         if (pc == buffer.cend()) {
@@ -83,6 +86,7 @@ int main() {
         }
     }
 
+    // Docker Compose report
     std::cout << "# Docker Report: version " << version << '\n';
     std::cout << "| Platform | Count |\n";
     std::cout << "|:-----|-----:|\n";
