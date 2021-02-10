@@ -18,4 +18,7 @@ bool isValue(std::string::const_iterator pc, bool invalue);
 // Parse a YAML key
 std::string::const_iterator parseKey(std::string::const_iterator pc, std::string::const_iterator end, std::string& name, bool& invalue);
 
+// Parse a YAML value
+std::string::const_iterator parseValue(std::string::const_iterator pc, std::string::const_iterator end, std::string& value, bool& invalue);
+
 #endif
