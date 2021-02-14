@@ -12,6 +12,9 @@
 class YAMLParser {
 public:
 
+    // constructor
+    YAMLParser();
+
     // is done parsing
     bool isDone(std::string::const_iterator pc, std::string::const_iterator end);
 
@@ -29,6 +32,8 @@ public:
 
 private:
     bool invalue = false;
+    std::string buffer;
+    std::string::const_iterator pc;
 };
 
 #endif

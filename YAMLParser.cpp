@@ -7,6 +7,12 @@
 #include "YAMLParser.hpp"
 #include "yaml_parser.hpp"
 
+// constructor
+YAMLParser::YAMLParser() {
+
+
+}
+
 // is done parsing
 bool YAMLParser::isDone(std::string::const_iterator pc, std::string::const_iterator end) {
 
