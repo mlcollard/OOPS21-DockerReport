@@ -7,6 +7,12 @@
 #include "YAMLParser.hpp"
 #include "yaml_parser.hpp"
 
+// is done parsing
+bool YAMLParser::isDone(std::string::const_iterator pc, std::string::const_iterator end) {
+
+    return pc == end;
+}
+
 // YAML parsing is at a key
 bool YAMLParser::isKey(std::string::const_iterator pc) {
 

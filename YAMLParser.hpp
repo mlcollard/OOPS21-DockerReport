@@ -11,6 +11,10 @@
 
 class YAMLParser {
 public:
+
+    // is done parsing
+    bool isDone(std::string::const_iterator pc, std::string::const_iterator end);
+
     // YAML parsing is at a key
     bool isKey(std::string::const_iterator pc);
 

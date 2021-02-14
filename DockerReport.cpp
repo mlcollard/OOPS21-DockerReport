@@ -35,7 +35,7 @@ int main() {
 
     std::string::const_iterator pc = buffer.cbegin();
     while (true) {
-        if (pc == buffer.cend()) {
+        if (parser.isDone(pc, buffer.cend())) {
             break;
         } else if (parser.isKey(pc)) {
 
