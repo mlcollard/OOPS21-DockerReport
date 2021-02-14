@@ -15,6 +15,7 @@
 #include <sstream>
 
 #include "yaml_parser.hpp"
+#include "YAMLParser.hpp"
 
 int main() {
 
@@ -30,6 +31,8 @@ int main() {
     std::ostringstream sstream;
     sstream << std::cin.rdbuf();
     std::string buffer = sstream.str();
+
+    YAMLParser parser;
 
     bool invalue = false;
     std::string::const_iterator pc = buffer.cbegin();
