@@ -10,7 +10,6 @@
 // constructor
 YAMLParser::YAMLParser() {
 
-
 }
 
 // is done parsing
