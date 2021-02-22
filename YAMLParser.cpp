@@ -42,3 +42,8 @@ std::string::const_iterator YAMLParser::parseValue(std::string::const_iterator p
     return ::parseValue(pc, end, value, invalue);
 }
 
+// Skip an input character
+std::string::const_iterator YAMLParser::skipChar(std::string::const_iterator pc) {
+
+    return std::next(pc);
+}

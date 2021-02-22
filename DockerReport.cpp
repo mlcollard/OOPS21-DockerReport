@@ -73,7 +73,7 @@ int main() {
             }
 
         } else {
-            std::advance(pc, 1);
+            pc = parser.skipChar(pc);
         }
     }
 
