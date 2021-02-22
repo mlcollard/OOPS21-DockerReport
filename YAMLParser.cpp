@@ -6,44 +6,52 @@
 
 #include "YAMLParser.hpp"
 #include "yaml_parser.hpp"
+#include <iostream>
+#include <sstream>
 
 // constructor
 YAMLParser::YAMLParser() {
 
+    // input complete file into a string
+    std::ostringstream sstream;
+    sstream << std::cin.rdbuf();
+    buffer = sstream.str();
+
+    pc = buffer.cbegin();
 }
 
 // is done parsing
-bool YAMLParser::isDone(std::string::const_iterator pc, std::string::const_iterator end) {
+bool YAMLParser::isDone() {
 
-    return pc == end;
+    return pc == buffer.cend();
 }
 
 // YAML parsing is at a key
-bool YAMLParser::isKey(std::string::const_iterator pc) {
+bool YAMLParser::isKey() {
 
     return ::isKey(pc, invalue);
 }
 
 // Parse a YAML key
-std::string::const_iterator YAMLParser::parseKey(std::string::const_iterator pc, std::string::const_iterator end, std::string& name) {
+void YAMLParser::parseKey(std::string& name) {
 
-    return ::parseKey(pc, end, name, invalue);
+    pc = ::parseKey(pc, buffer.cend(), name, invalue);
 }
 
 // YAML parsing is at a value
-bool YAMLParser::isValue(std::string::const_iterator pc) {
+bool YAMLParser::isValue() {
 
     return ::isValue(pc, invalue);
 }
 
 // Parse a YAML value
-std::string::const_iterator YAMLParser::parseValue(std::string::const_iterator pc, std::string::const_iterator end, std::string& value) {
+void YAMLParser::parseValue(std::string& value) {
 
-    return ::parseValue(pc, end, value, invalue);
+    pc = ::parseValue(pc, buffer.cend(), value, invalue);
 }
 
 // Skip an input character
-std::string::const_iterator YAMLParser::skipChar(std::string::const_iterator pc) {
+void YAMLParser::skipChar() {
 
-    return std::next(pc);
+    std::advance(pc, 1);
 }

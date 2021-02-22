@@ -12,7 +12,6 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
 
 #include "YAMLParser.hpp"
 
@@ -26,22 +25,16 @@ int main() {
     int centos_count = 0;
     int opensuse_count = 0;
 
-    // input complete file into a string
-    std::ostringstream sstream;
-    sstream << std::cin.rdbuf();
-    std::string buffer = sstream.str();
-
     YAMLParser parser;
 
-    std::string::const_iterator pc = buffer.cbegin();
     while (true) {
-        if (parser.isDone(pc, buffer.cend())) {
+        if (parser.isDone()) {
             break;
-        } else if (parser.isKey(pc)) {
+        } else if (parser.isKey()) {
 
             // parse key
             std::string name;
-            pc = parser.parseKey(pc, buffer.cend(), name);
+            parser.parseKey(name);
 
             // update docker counters and version
             if (name == "version") {
@@ -60,11 +53,11 @@ int main() {
                 }
             }
 
-        } else if (parser.isValue(pc)) {
+        } else if (parser.isValue()) {
 
             // parse value
             std::string value;
-            pc = parser.parseValue(pc, buffer.cend(), value);
+            parser.parseValue(value);
 
             // save the version value
             if (inversion) {
@@ -73,7 +66,7 @@ int main() {
             }
 
         } else {
-            pc = parser.skipChar(pc);
+            parser.skipChar();
         }
     }
 
