@@ -31,7 +31,7 @@ public:
     std::string::const_iterator parseValue(std::string::const_iterator pc, std::string::const_iterator end, std::string& value);
 
     // Skip an input character
-    std::string::const_iterator  skipChar(std::string::const_iterator pc);
+    std::string::const_iterator skipChar(std::string::const_iterator pc);
 
 private:
     bool invalue = false;
