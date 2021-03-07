@@ -10,7 +10,10 @@
 #include <sstream>
 
 // constructor
-YAMLParser::YAMLParser() {
+YAMLParser::YAMLParser(std::function<void(const std::string&)> handleKey,
+                       std::function<void(const std::string&)> handleValue)
+    : handleKey(handleKey), handleValue(handleValue)
+{
 
     // input complete file into a string
     std::ostringstream sstream;
@@ -36,6 +39,9 @@ bool YAMLParser::isKey() {
 void YAMLParser::parseKey(std::string& name) {
 
     pc = ::parseKey(pc, buffer.cend(), name, invalue);
+
+    if (handleKey != nullptr)
+        handleKey(name);
 }
 
 // YAML parsing is at a value
@@ -48,6 +54,9 @@ bool YAMLParser::isValue() {
 void YAMLParser::parseValue(std::string& value) {
 
     pc = ::parseValue(pc, buffer.cend(), value, invalue);
+
+    if (handleValue != nullptr)
+        handleValue(value);
 }
 
 // Skip an input character

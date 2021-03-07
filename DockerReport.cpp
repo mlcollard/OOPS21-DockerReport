@@ -25,7 +25,7 @@ int main() {
     int centos_count = 0;
     int opensuse_count = 0;
 
-    YAMLParser parser;
+    YAMLParser parser(nullptr, nullptr);
 
     while (true) {
         if (parser.isDone()) {
