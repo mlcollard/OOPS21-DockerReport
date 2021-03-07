@@ -10,10 +10,7 @@
 #include <sstream>
 
 // constructor
-YAMLParser::YAMLParser(std::function<void(const std::string&)> handleKey,
-                       std::function<void(const std::string&)> handleValue)
-    : handleKey(handleKey), handleValue(handleValue)
-{
+YAMLParser::YAMLParser() {
 
     // input complete file into a string
     std::ostringstream sstream;
@@ -21,6 +18,16 @@ YAMLParser::YAMLParser(std::function<void(const std::string&)> handleKey,
     buffer = sstream.str();
 
     pc = buffer.cbegin();
+}
+
+// register the key handler
+void YAMLParser::setKeyHandler(std::function<void(const std::string&)> keyHandler) {
+    handleKey = keyHandler;
+}
+
+// register the value handler
+void YAMLParser::setValueHandler(std::function<void(const std::string&)> valueHandler) {
+    handleValue = valueHandler;
 }
 
 // parse the YAML

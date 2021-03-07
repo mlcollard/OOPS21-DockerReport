@@ -26,9 +26,9 @@ int main() {
     int opensuse_count = 0;
 
     // parse the YAML dockercompose.yml on standard input
-    YAMLParser parser(
+    YAMLParser parser;
+    parser.setKeyHandler(
 
-        // key processing
         [&](const std::string& name) {
 
             // update docker counters and version
@@ -47,9 +47,10 @@ int main() {
                     ++opensuse_count;
                 }
             }
-        },
+        }
+    );
+    parser.setValueHandler(
 
-        // value processing
         [&inversion,&version](const std::string& value) {
 
             // save the version value
