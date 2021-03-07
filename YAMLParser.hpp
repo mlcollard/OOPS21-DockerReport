@@ -20,6 +20,8 @@ public:
     // parse the YAML
     void parse();
 
+private:
+
     // is done parsing
     bool isDone();
 
@@ -38,7 +40,6 @@ public:
     // Skip an input character
     void skipChar();
 
-private:
     std::function<void(const std::string&)> handleKey;
     std::function<void(const std::string&)> handleValue;
     bool invalue = false;
