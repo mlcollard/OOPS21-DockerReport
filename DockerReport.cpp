@@ -25,7 +25,17 @@ int main() {
     int centos_count = 0;
     int opensuse_count = 0;
 
-    YAMLParser parser(nullptr, nullptr);
+    YAMLParser parser(nullptr,
+
+        [&inversion,&version](const std::string& value) {
+
+            // save the version value
+            if (inversion) {
+                version = value;
+                inversion = false;
+            }
+        }
+    );
 
     while (true) {
         if (parser.isDone()) {
@@ -58,12 +68,6 @@ int main() {
             // parse value
             std::string value;
             parser.parseValue(value);
-
-            // save the version value
-            if (inversion) {
-                version = value;
-                inversion = false;
-            }
 
         } else {
             parser.skipChar();
