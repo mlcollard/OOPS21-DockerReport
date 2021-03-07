@@ -25,6 +25,7 @@ int main() {
     int centos_count = 0;
     int opensuse_count = 0;
 
+    // parse the YAML dockercompose.yml on standard input
     YAMLParser parser(
 
         // key processing
@@ -58,26 +59,7 @@ int main() {
             }
         }
     );
-
-    while (true) {
-        if (parser.isDone()) {
-            break;
-        } else if (parser.isKey()) {
-
-            // parse key
-            std::string name;
-            parser.parseKey(name);
-
-        } else if (parser.isValue()) {
-
-            // parse value
-            std::string value;
-            parser.parseValue(value);
-
-        } else {
-            parser.skipChar();
-        }
-    }
+    parser.parse();
 
     // Docker Compose report
     std::cout << "# Docker Report: version " << version << '\n';

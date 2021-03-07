@@ -23,6 +23,30 @@ YAMLParser::YAMLParser(std::function<void(const std::string&)> handleKey,
     pc = buffer.cbegin();
 }
 
+// parse the YAML
+void YAMLParser::parse() {
+
+    while (true) {
+        if (isDone()) {
+            break;
+        } else if (isKey()) {
+
+            // parse key
+            std::string name;
+            parseKey(name);
+
+        } else if (isValue()) {
+
+            // parse value
+            std::string value;
+            parseValue(value);
+
+        } else {
+            skipChar();
+        }
+    }
+}
+
 // is done parsing
 bool YAMLParser::isDone() {
 

@@ -17,6 +17,9 @@ public:
     YAMLParser(std::function<void(const std::string&)> handleKey,
                std::function<void(const std::string&)> handleValue);
 
+    // parse the YAML
+    void parse();
+
     // is done parsing
     bool isDone();
 
