@@ -23,16 +23,16 @@ public:
 private:
 
     // is done parsing
-    bool isDone();
+    bool isDone() const;
 
     // YAML parsing is at a key
-    bool isKey();
+    bool isKey() const;
 
     // Parse a YAML key
     void parseKey(std::string& name);
 
     // YAML parsing is at a value
-    bool isValue();
+    bool isValue() const;
 
     // Parse a YAML value
     void parseValue(std::string& value);

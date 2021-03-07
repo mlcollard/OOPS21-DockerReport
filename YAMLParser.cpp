@@ -48,13 +48,13 @@ void YAMLParser::parse() {
 }
 
 // is done parsing
-bool YAMLParser::isDone() {
+bool YAMLParser::isDone() const {
 
     return pc == buffer.cend();
 }
 
 // YAML parsing is at a key
-bool YAMLParser::isKey() {
+bool YAMLParser::isKey() const {
 
     return ::isKey(pc, invalue);
 }
@@ -69,7 +69,7 @@ void YAMLParser::parseKey(std::string& name) {
 }
 
 // YAML parsing is at a value
-bool YAMLParser::isValue() {
+bool YAMLParser::isValue() const {
 
     return ::isValue(pc, invalue);
 }
