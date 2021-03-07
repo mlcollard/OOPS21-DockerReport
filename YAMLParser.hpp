@@ -7,6 +7,7 @@
 #ifndef INCLUDED_YAMLPARSER_HPP
 #define INCLUDED_YAMLPARSER_HPP
 
+#include <functional>
 #include <string>
 
 class YAMLParser {
@@ -34,6 +35,8 @@ public:
     void skipChar();
 
 private:
+    std::function<void(const std::string&)> handleKey;
+    std::function<void(const std::string&)> handleValue;
     bool invalue = false;
     std::string buffer;
     std::string::const_iterator pc;
