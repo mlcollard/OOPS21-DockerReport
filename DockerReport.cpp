@@ -25,8 +25,30 @@ int main() {
     int centos_count = 0;
     int opensuse_count = 0;
 
-    YAMLParser parser(nullptr,
+    YAMLParser parser(
 
+        // key processing
+        [&](const std::string& name) {
+
+            // update docker counters and version
+            if (name == "version") {
+                inversion = true;
+            } else {
+                ++key_count;
+                std::string name_prefix = name.substr(0, name.find('_'));
+                if (name_prefix == "ubuntu") {
+                    ++ubuntu_count;
+                } else if (name_prefix == "fedora") {
+                    ++fedora_count;
+                } else if (name_prefix == "centos") {
+                    ++centos_count;
+                } else if (name_prefix == "opensuse") {
+                    ++opensuse_count;
+                }
+            }
+        },
+
+        // value processing
         [&inversion,&version](const std::string& value) {
 
             // save the version value
@@ -45,23 +67,6 @@ int main() {
             // parse key
             std::string name;
             parser.parseKey(name);
-
-            // update docker counters and version
-            if (name == "version") {
-                inversion = true;
-            } else {
-                ++key_count;
-                std::string name_prefix = name.substr(0, name.find('_'));
-                if (name_prefix == "ubuntu") {
-                    ++ubuntu_count;
-                } else if (name_prefix == "fedora") {
-                    ++fedora_count;
-                } else if (name_prefix == "centos") {
-                    ++centos_count;
-                } else if (name_prefix == "opensuse") {
-                    ++opensuse_count;
-                }
-            }
 
         } else if (parser.isValue()) {
 
