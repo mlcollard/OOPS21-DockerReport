@@ -78,6 +78,9 @@ void YAMLParser::parseKey(std::string& name) {
 
     if (handleKey != nullptr)
         handleKey(name);
+
+    // call extension point for key
+    processKey(name);
 }
 
 // YAML parsing is at a value
@@ -93,6 +96,9 @@ void YAMLParser::parseValue(std::string& value) {
 
     if (handleValue != nullptr)
         handleValue(value);
+
+    // call extension point for value
+    processValue(value);
 }
 
 // Skip an input character

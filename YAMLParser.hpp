@@ -28,6 +28,14 @@ public:
     // destructor
     virtual ~YAMLParser();
 
+protected:
+
+    // process Key
+    virtual void processKey(const std::string& name) = 0;
+
+    // process Value
+    virtual void processValue(const std::string& value) = 0;
+
 private:
 
     // is done parsing

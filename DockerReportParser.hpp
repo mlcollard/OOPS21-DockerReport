@@ -10,8 +10,13 @@
 #include "YAMLParser.hpp"
 
 class DockerReportParser : public YAMLParser {
-public:
+private:
 
+    // process Key
+    virtual void processKey(const std::string& name);
+
+    // process Value
+    virtual void processValue(const std::string& value);
 };
 
 #endif
