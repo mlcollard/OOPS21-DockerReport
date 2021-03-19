@@ -20,6 +20,11 @@ YAMLParser::YAMLParser() {
     pc = buffer.cbegin();
 }
 
+// destructor
+YAMLParser::~YAMLParser() {
+
+}
+
 // register the key handler
 void YAMLParser::setKeyHandler(std::function<void(const std::string&)> keyHandler) {
     handleKey = keyHandler;

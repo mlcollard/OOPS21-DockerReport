@@ -13,7 +13,7 @@
 #include <iostream>
 #include <string>
 
-#include "YAMLParser.hpp"
+#include "DockerReportParser.hpp"
 
 int main() {
 
@@ -26,7 +26,7 @@ int main() {
     int opensuse_count = 0;
 
     // parse the YAML dockercompose.yml on standard input
-    YAMLParser parser;
+    DockerReportParser parser;
     parser.setKeyHandler(
 
         [&](const std::string& name) {

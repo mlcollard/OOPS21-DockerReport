@@ -25,6 +25,9 @@ public:
     // parse the YAML
     void parse();
 
+    // destructor
+    virtual ~YAMLParser();
+
 private:
 
     // is done parsing

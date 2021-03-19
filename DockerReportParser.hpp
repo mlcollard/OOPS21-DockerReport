@@ -7,4 +7,11 @@
 #ifndef INCLUDED_DOCKERREPORTPARSER_HPP
 #define INCLUDED_DOCKERREPORTPARSER_HPP
 
+#include "YAMLParser.hpp"
+
+class DockerReportParser : public YAMLParser {
+public:
+
+};
+
 #endif
