@@ -21,6 +21,11 @@ private:
 public:
     std::string version;
     bool inversion = false;
+    int key_count = 0;
+    int ubuntu_count = 0;
+    int fedora_count = 0;
+    int centos_count = 0;
+    int opensuse_count = 0;
 };
 
 #endif
