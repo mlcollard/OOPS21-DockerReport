@@ -63,7 +63,7 @@ int main() {
     parser.parse();
 
     // Docker Compose report
-    std::cout << "# Docker Report: version " << version << '\n';
+    std::cout << "# Docker Report: version " << parser.getVersion() << '\n';
     std::cout << "| Platform | Count |\n";
     std::cout << "|:-----|-----:|\n";
     std::cout << "| all | " << key_count << " |\n";

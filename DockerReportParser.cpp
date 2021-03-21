@@ -6,6 +6,12 @@
 
 #include "DockerReportParser.hpp"
 
+// @get Version number
+const std::string& DockerReportParser::getVersion() const {
+
+    return version;
+}
+
 // process Key
 void DockerReportParser::processKey(const std::string& name) {
 

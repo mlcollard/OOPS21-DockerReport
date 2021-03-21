@@ -10,6 +10,11 @@
 #include "YAMLParser.hpp"
 
 class DockerReportParser : public YAMLParser {
+public:
+
+    // @get Version number
+    const std::string& getVersion() const;
+
 private:
 
     // process Key
