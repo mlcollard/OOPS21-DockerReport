@@ -15,6 +15,21 @@ public:
     // @get Version number
     const std::string& getVersion() const;
 
+    // @get Key count
+    int getKeyCount() const;
+
+    // @get Ubuntu count
+    int getUbuntuCount() const;
+
+    // @get Fedora count
+    int getFedoraCount() const;
+
+    // @get CentOS count
+    int getCentOSCount() const;
+
+    // @get OpenSuse count
+    int getOpenSuseCount() const;
+
 private:
 
     // process Key

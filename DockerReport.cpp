@@ -66,11 +66,11 @@ int main() {
     std::cout << "# Docker Report: version " << parser.getVersion() << '\n';
     std::cout << "| Platform | Count |\n";
     std::cout << "|:-----|-----:|\n";
-    std::cout << "| all | " << key_count << " |\n";
-    std::cout << "| ubuntu | " << ubuntu_count << " |\n";
-    std::cout << "| fedora | " << fedora_count << " |\n";
-    std::cout << "| centos | " << centos_count << " |\n";
-    std::cout << "| opensuse | " << opensuse_count << " |\n";
+    std::cout << "| all | " << parser.getKeyCount() << " |\n";
+    std::cout << "| ubuntu | " << parser.getUbuntuCount() << " |\n";
+    std::cout << "| fedora | " << parser.getFedoraCount() << " |\n";
+    std::cout << "| centos | " << parser.getCentOSCount() << " |\n";
+    std::cout << "| opensuse | " << parser.getOpenSuseCount() << " |\n";
 
     return 0;
 }

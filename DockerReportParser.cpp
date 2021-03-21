@@ -12,6 +12,37 @@ const std::string& DockerReportParser::getVersion() const {
     return version;
 }
 
+// @get Key count
+int DockerReportParser::getKeyCount() const {
+
+    return key_count;
+}
+
+// @get Ubuntu count
+int DockerReportParser::getUbuntuCount() const {
+
+    return ubuntu_count;
+}
+
+// @get Fedora count
+int DockerReportParser::getFedoraCount() const {
+
+    return fedora_count;
+}
+
+// @get CentOS count
+int DockerReportParser::getCentOSCount() const {
+
+    return centos_count;
+}
+
+// @get OpenSuse count
+int DockerReportParser::getOpenSuseCount() const {
+
+    return opensuse_count;
+}
+
+
 // process Key
 void DockerReportParser::processKey(const std::string& name) {
 
