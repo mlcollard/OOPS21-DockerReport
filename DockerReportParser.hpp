@@ -17,6 +17,10 @@ private:
 
     // process Value
     virtual void processValue(const std::string& value);
+
+public:
+    std::string version;
+    bool inversion = false;
 };
 
 #endif
