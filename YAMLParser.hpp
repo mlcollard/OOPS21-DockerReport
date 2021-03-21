@@ -16,12 +16,6 @@ public:
     // constructor
     YAMLParser();
 
-    // register the key handler
-    void setKeyHandler(std::function<void(const std::string&)> handleKey);
-
-    // register the value handler
-    void setValueHandler(std::function<void(const std::string&)> handleValue);
-
     // parse the YAML
     void parse();
 
@@ -56,8 +50,6 @@ private:
     // Skip an input character
     void skipChar();
 
-    std::function<void(const std::string&)> handleKey;
-    std::function<void(const std::string&)> handleValue;
     bool invalue = false;
     std::string buffer;
     std::string::const_iterator pc;

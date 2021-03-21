@@ -25,16 +25,6 @@ YAMLParser::~YAMLParser() {
 
 }
 
-// register the key handler
-void YAMLParser::setKeyHandler(std::function<void(const std::string&)> keyHandler) {
-    handleKey = keyHandler;
-}
-
-// register the value handler
-void YAMLParser::setValueHandler(std::function<void(const std::string&)> valueHandler) {
-    handleValue = valueHandler;
-}
-
 // parse the YAML
 void YAMLParser::parse() {
 
@@ -76,9 +66,6 @@ void YAMLParser::parseKey(std::string& name) {
 
     pc = ::parseKey(pc, buffer.cend(), name, invalue);
 
-    if (handleKey != nullptr)
-        handleKey(name);
-
     // call extension point for key
     processKey(name);
 }
@@ -93,9 +80,6 @@ bool YAMLParser::isValue() const {
 void YAMLParser::parseValue(std::string& value) {
 
     pc = ::parseValue(pc, buffer.cend(), value, invalue);
-
-    if (handleValue != nullptr)
-        handleValue(value);
 
     // call extension point for value
     processValue(value);
