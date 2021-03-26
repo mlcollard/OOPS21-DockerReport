@@ -11,17 +11,15 @@
 */
 
 #include <iostream>
-#include <string>
 
-#include "YAMLParser.hpp"
+#include "ParserEngine.hpp"
 #include "DockerReportHandler.hpp"
 
 int main() {
 
-    // parse the YAML dockercompose.yml on standard input
+    // parse dockercompose.yml on standard input
     DockerReportHandler handler;
-    YAMLParser parser(handler);
-    parser.parse();
+    goParse(handler);
 
     // Docker Compose report
     std::cout << "# Docker Report: version " << handler.getVersion() << '\n';
