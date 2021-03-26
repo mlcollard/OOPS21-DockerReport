@@ -7,6 +7,8 @@
 #ifndef INCLUDED_YAMLPARSER_HPP
 #define INCLUDED_YAMLPARSER_HPP
 
+#include "YAMLParserHandler.hpp"
+
 #include <functional>
 #include <string>
 
