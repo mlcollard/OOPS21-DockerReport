@@ -7,9 +7,9 @@
 #ifndef INCLUDED_DOCKERREPORTHANDLER_HPP
 #define INCLUDED_DOCKERREPORTHANDLER_HPP
 
-#include "YAMLParser.hpp"
+#include "YAMLParserHandler.hpp"
 
-class DockerReportHandler : public YAMLParser {
+class DockerReportHandler : public YAMLParserHandler {
 public:
 
     // @get Version number

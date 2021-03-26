@@ -10,7 +10,7 @@
 #include <string>
 
 class YAMLParserHandler {
-protected:
+public:
 
     // process Key
     virtual void processKey(const std::string& name) = 0;

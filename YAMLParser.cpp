@@ -10,7 +10,9 @@
 #include <sstream>
 
 // constructor
-YAMLParser::YAMLParser() {
+YAMLParser::YAMLParser(YAMLParserHandler& handler)
+    : handler(handler)
+{
 
     // input complete file into a string
     std::ostringstream sstream;
@@ -67,7 +69,7 @@ void YAMLParser::parseKey(std::string& name) {
     pc = ::parseKey(pc, buffer.cend(), name, invalue);
 
     // call extension point for key
-    processKey(name);
+    handler.processKey(name);
 }
 
 // YAML parsing is at a value
@@ -82,7 +84,7 @@ void YAMLParser::parseValue(std::string& value) {
     pc = ::parseValue(pc, buffer.cend(), value, invalue);
 
     // call extension point for value
-    processValue(value);
+    handler.processValue(value);
 }
 
 // Skip an input character
