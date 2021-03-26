@@ -13,12 +13,12 @@
 #include <iostream>
 #include <string>
 
-#include "DockerReportParser.hpp"
+#include "DockerReportHandler.hpp"
 
 int main() {
 
     // parse the YAML dockercompose.yml on standard input
-    DockerReportParser parser;
+    DockerReportHandler parser;
     parser.parse();
 
     // Docker Compose report

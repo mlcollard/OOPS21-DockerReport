@@ -1,15 +1,15 @@
 /*
-    DockerReportParser.hpp
+    DockerReportHandler.hpp
 
-    Declaration file for DockerReportParser
+    Declaration file for DockerReportHandler
 */
 
-#ifndef INCLUDED_DOCKERREPORTPARSER_HPP
-#define INCLUDED_DOCKERREPORTPARSER_HPP
+#ifndef INCLUDED_DOCKERREPORTHANDLER_HPP
+#define INCLUDED_DOCKERREPORTHANDLER_HPP
 
 #include "YAMLParser.hpp"
 
-class DockerReportParser : public YAMLParser {
+class DockerReportHandler : public YAMLParser {
 public:
 
     // @get Version number

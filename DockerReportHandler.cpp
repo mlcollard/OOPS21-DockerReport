@@ -1,50 +1,50 @@
 /*
-    DockerReportParser.cpp
+    DockerReportHandler.cpp
 
-    Implementation for DockerReportParser class
+    Implementation for DockerReportHandler class
 */
 
-#include "DockerReportParser.hpp"
+#include "DockerReportHandler.hpp"
 
 // @get Version number
-const std::string& DockerReportParser::getVersion() const {
+const std::string& DockerReportHandler::getVersion() const {
 
     return version;
 }
 
 // @get Key count
-int DockerReportParser::getKeyCount() const {
+int DockerReportHandler::getKeyCount() const {
 
     return key_count;
 }
 
 // @get Ubuntu count
-int DockerReportParser::getUbuntuCount() const {
+int DockerReportHandler::getUbuntuCount() const {
 
     return ubuntu_count;
 }
 
 // @get Fedora count
-int DockerReportParser::getFedoraCount() const {
+int DockerReportHandler::getFedoraCount() const {
 
     return fedora_count;
 }
 
 // @get CentOS count
-int DockerReportParser::getCentOSCount() const {
+int DockerReportHandler::getCentOSCount() const {
 
     return centos_count;
 }
 
 // @get OpenSuse count
-int DockerReportParser::getOpenSuseCount() const {
+int DockerReportHandler::getOpenSuseCount() const {
 
     return opensuse_count;
 }
 
 
 // process Key
-void DockerReportParser::processKey(const std::string& name) {
+void DockerReportHandler::processKey(const std::string& name) {
 
     // update docker counters and version
     if (name == "version") {
@@ -65,7 +65,7 @@ void DockerReportParser::processKey(const std::string& name) {
 }
 
 // process Value
-void DockerReportParser::processValue(const std::string& value) {
+void DockerReportHandler::processValue(const std::string& value) {
 
     // save the version value
     if (inversion) {
